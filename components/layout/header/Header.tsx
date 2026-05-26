@@ -22,7 +22,7 @@ export default function Header({ navigation }: HeaderProps) {
             />
         ): (
           <span className="text-xl font-bold">
-            Company Name
+            Company Name hello
           </span>
         )}
         </Link>
