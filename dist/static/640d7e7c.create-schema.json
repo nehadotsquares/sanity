@@ -1,0 +1,713 @@
+[
+  {
+    "fields": [
+      {
+        "name": "logo",
+        "type": "image"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "name": "title",
+                "type": "string"
+              },
+              {
+                "name": "link",
+                "type": "string"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "menuItems",
+        "type": "array"
+      },
+      {
+        "name": "pentestButtonText",
+        "type": "string"
+      },
+      {
+        "name": "pentestButtonLink",
+        "type": "string"
+      },
+      {
+        "name": "buttonText",
+        "type": "string",
+        "title": "Contact Button Text"
+      },
+      {
+        "name": "buttonLink",
+        "type": "string",
+        "title": "Contact Button Link"
+      }
+    ],
+    "name": "navigation",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "name": "logo",
+        "type": "image"
+      },
+      {
+        "to": [
+          {
+            "type": "menu"
+          }
+        ],
+        "name": "siteMapMenu",
+        "type": "reference"
+      },
+      {
+        "to": [
+          {
+            "type": "menu"
+          }
+        ],
+        "name": "legalMenu",
+        "type": "reference"
+      },
+      {
+        "to": [
+          {
+            "type": "menu"
+          }
+        ],
+        "name": "connectMenu",
+        "type": "reference"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "footerImage",
+        "type": "image"
+      }
+    ],
+    "name": "footer",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "name": "title",
+        "type": "string",
+        "title": "Menu Title"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "name": "title",
+                "type": "string"
+              },
+              {
+                "name": "link",
+                "type": "string"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "menuItems",
+        "type": "array"
+      }
+    ],
+    "name": "menu",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "name": "heroTitle",
+        "type": "string"
+      },
+      {
+        "name": "heroSubtitle",
+        "type": "text"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "heroImage",
+        "type": "image"
+      },
+      {
+        "name": "buttonText",
+        "type": "string"
+      },
+      {
+        "name": "buttonLink",
+        "type": "string"
+      },
+      {
+        "name": "validationTitle",
+        "type": "string"
+      },
+      {
+        "name": "validationSubtitle",
+        "type": "text"
+      },
+      {
+        "name": "validationDescription",
+        "type": "text"
+      },
+      {
+        "name": "validationButtonText",
+        "type": "string"
+      },
+      {
+        "name": "validationButtonLink",
+        "type": "string"
+      },
+      {
+        "name": "trustedText",
+        "type": "string"
+      },
+      {
+        "of": [
+          {
+            "options": {
+              "hotspot": true
+            },
+            "type": "image"
+          }
+        ],
+        "name": "trustedLogos",
+        "type": "array"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "changeBackgroundImage",
+        "type": "image",
+        "title": "Background Image"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "changeSectionImage",
+        "type": "image",
+        "title": "Section Image"
+      },
+      {
+        "name": "changeSmallTitle",
+        "type": "string",
+        "title": "Small Title"
+      },
+      {
+        "name": "changeTitle",
+        "type": "string",
+        "title": "Main Title"
+      },
+      {
+        "name": "changeDescription",
+        "type": "text",
+        "title": "Description"
+      },
+      {
+        "name": "solutionSmallTitle",
+        "type": "string"
+      },
+      {
+        "name": "solutionTitle",
+        "type": "string",
+        "title": "Solutiion Main Title"
+      },
+      {
+        "name": "solutionDescription",
+        "type": "text"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "solutionSectionImage",
+        "type": "image"
+      },
+      {
+        "name": "differentiationSectionTitle",
+        "type": "string"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "options": {
+                  "hotspot": true
+                },
+                "name": "image",
+                "type": "image"
+              },
+              {
+                "name": "title",
+                "type": "string"
+              },
+              {
+                "name": "description",
+                "type": "text"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "differentiationCards",
+        "type": "array"
+      },
+      {
+        "name": "processBackgroundImage",
+        "type": "image"
+      },
+      {
+        "name": "processSmallTitle",
+        "type": "string"
+      },
+      {
+        "name": "processTitle",
+        "type": "string"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "name": "number",
+                "type": "string"
+              },
+              {
+                "name": "title",
+                "type": "string"
+              },
+              {
+                "name": "description",
+                "type": "text"
+              },
+              {
+                "name": "image",
+                "type": "image"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "processCards",
+        "type": "array"
+      },
+      {
+        "name": "testimonialBackgroundImage",
+        "type": "image"
+      },
+      {
+        "name": "testimonialTitle",
+        "type": "string"
+      },
+      {
+        "name": "testimonialQuote",
+        "type": "text"
+      },
+      {
+        "name": "testimonialPersonName",
+        "type": "string",
+        "title": "Person Name"
+      },
+      {
+        "name": "testimonialPersonRole",
+        "type": "string",
+        "title": "Person Role"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "name": "testimonialVideoUrl",
+        "type": "url",
+        "title": "Testimonial Video URL"
+      },
+      {
+        "name": "demoTitle",
+        "type": "string"
+      },
+      {
+        "name": "demoButtonText",
+        "type": "string"
+      },
+      {
+        "name": "demoButtonLink",
+        "type": "string"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "demoImage",
+        "type": "image"
+      }
+    ],
+    "name": "homePage",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "options": {
+          "source": "title"
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "custom"
+              }
+            ]
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "of": [
+          {
+            "lists": [
+              {
+                "value": "bullet",
+                "title": "Bulleted list"
+              },
+              {
+                "value": "number",
+                "title": "Numbered list"
+              }
+            ],
+            "marks": {
+              "annotations": [
+                {
+                  "i18nTitleKey": "inputs.portable-text.annotation.link",
+                  "options": {
+                    "modal": {
+                      "type": "popover"
+                    }
+                  },
+                  "fields": [
+                    {
+                      "validation": [
+                        {
+                          "level": "error",
+                          "rules": [
+                            {
+                              "flag": "uri",
+                              "constraint": {
+                                "options": {
+                                  "scheme": [
+                                    "/^http$/",
+                                    "/^https$/",
+                                    "/^tel$/",
+                                    "/^mailto$/"
+                                  ],
+                                  "allowRelative": true,
+                                  "relativeOnly": false,
+                                  "allowCredentials": false
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      "description": "A valid web, email, phone, or relative link.",
+                      "name": "href",
+                      "type": "url",
+                      "title": "Link"
+                    }
+                  ],
+                  "name": "link",
+                  "type": "object"
+                }
+              ],
+              "decorators": [
+                {
+                  "value": "strong",
+                  "title": "Strong"
+                },
+                {
+                  "value": "em",
+                  "title": "Italic"
+                },
+                {
+                  "value": "code",
+                  "title": "Code"
+                },
+                {
+                  "value": "underline",
+                  "title": "Underline"
+                },
+                {
+                  "value": "strike-through",
+                  "title": "Strike"
+                }
+              ]
+            },
+            "of": [],
+            "styles": [
+              {
+                "value": "normal",
+                "title": "Normal"
+              },
+              {
+                "value": "h1",
+                "title": "Heading 1"
+              },
+              {
+                "value": "h2",
+                "title": "Heading 2"
+              },
+              {
+                "value": "h3",
+                "title": "Heading 3"
+              },
+              {
+                "value": "h4",
+                "title": "Heading 4"
+              },
+              {
+                "value": "h5",
+                "title": "Heading 5"
+              },
+              {
+                "value": "h6",
+                "title": "Heading 6"
+              },
+              {
+                "value": "blockquote",
+                "title": "Quote"
+              }
+            ],
+            "type": "block"
+          }
+        ],
+        "name": "content",
+        "type": "array"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "bannerImage",
+        "type": "image"
+      }
+    ],
+    "name": "page",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "options": {
+          "source": "title",
+          "maxLength": 96
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "custom"
+              }
+            ]
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "image",
+        "type": "image",
+        "title": "Featured Image"
+      },
+      {
+        "of": [
+          {
+            "lists": [
+              {
+                "value": "bullet",
+                "title": "Bulleted list"
+              },
+              {
+                "value": "number",
+                "title": "Numbered list"
+              }
+            ],
+            "marks": {
+              "annotations": [
+                {
+                  "i18nTitleKey": "inputs.portable-text.annotation.link",
+                  "options": {
+                    "modal": {
+                      "type": "popover"
+                    }
+                  },
+                  "fields": [
+                    {
+                      "validation": [
+                        {
+                          "level": "error",
+                          "rules": [
+                            {
+                              "flag": "uri",
+                              "constraint": {
+                                "options": {
+                                  "scheme": [
+                                    "/^http$/",
+                                    "/^https$/",
+                                    "/^tel$/",
+                                    "/^mailto$/"
+                                  ],
+                                  "allowRelative": true,
+                                  "relativeOnly": false,
+                                  "allowCredentials": false
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      "description": "A valid web, email, phone, or relative link.",
+                      "name": "href",
+                      "type": "url",
+                      "title": "Link"
+                    }
+                  ],
+                  "name": "link",
+                  "type": "object"
+                }
+              ],
+              "decorators": [
+                {
+                  "value": "strong",
+                  "title": "Strong"
+                },
+                {
+                  "value": "em",
+                  "title": "Italic"
+                },
+                {
+                  "value": "code",
+                  "title": "Code"
+                },
+                {
+                  "value": "underline",
+                  "title": "Underline"
+                },
+                {
+                  "value": "strike-through",
+                  "title": "Strike"
+                }
+              ]
+            },
+            "of": [],
+            "styles": [
+              {
+                "value": "normal",
+                "title": "Normal"
+              },
+              {
+                "value": "h1",
+                "title": "Heading 1"
+              },
+              {
+                "value": "h2",
+                "title": "Heading 2"
+              },
+              {
+                "value": "h3",
+                "title": "Heading 3"
+              },
+              {
+                "value": "h4",
+                "title": "Heading 4"
+              },
+              {
+                "value": "h5",
+                "title": "Heading 5"
+              },
+              {
+                "value": "h6",
+                "title": "Heading 6"
+              },
+              {
+                "value": "blockquote",
+                "title": "Quote"
+              }
+            ],
+            "type": "block"
+          }
+        ],
+        "name": "content",
+        "type": "array"
+      }
+    ],
+    "name": "post",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "name": "email",
+        "type": "string"
+      },
+      {
+        "name": "message",
+        "type": "text"
+      },
+      {
+        "name": "submittedAt",
+        "type": "datetime"
+      }
+    ],
+    "name": "contactSubmission",
+    "type": "document"
+  }
+]
