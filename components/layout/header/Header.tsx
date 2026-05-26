@@ -29,7 +29,7 @@ export default function Header({ navigation }: HeaderProps) {
 
         {/* Menu */}
         <nav className="flex gap-6">
-          {navigation?.menuItems?.map((item) => (
+          {navigation?.menuItems?.map((item:any) => (
             <Link
               key={item.link}
               href={item.link}

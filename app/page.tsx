@@ -245,10 +245,10 @@ export default async function HomePage() {
         </div>
       </section>
       {/*Diffrentiation*/}
-      <section className="py-30 bg-black text-white">
+      <section className="py-30 bg-black">
         <div className="max-w-7xl mx-auto px-6">
 
-          <h2 className="text-9xl font-bold text-center mb-16">
+          <h2 className="text-9xl font-bold text-center mb-16 text-white">
             {home?.differentiationSectionTitle}
           </h2>
 
@@ -258,10 +258,10 @@ export default async function HomePage() {
 
               <div
                 key={card._key}
-                className="p-6 rounded-2xl border border-gray-200 transition-all duration-300 hover:border-[#ccff00] hover:shadow-[20px_0_50px_10px_#ccff0033]"
+                className="p-6 rounded-2xl border border-gray-800 transition-all duration-300 hover:border-[#ccff00] hover:shadow-[20px_0_50px_10px_#ccff0033]"
               >
 
-                <h3 className="text-2xl mb-4">
+                <h3 className="text-2xl mb-4 text-white">
                   {card.title}
                 </h3>
 
@@ -273,7 +273,7 @@ export default async function HomePage() {
                   <img
                     src={urlFor(card.image).url()}
                     alt={card.title}
-                    className="w-full h-40 object-contain mb-6"
+                    className="w-full h-40 object-contain mb-6 mt-6"
                   />
                 )}
 
