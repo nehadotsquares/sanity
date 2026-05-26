@@ -167,7 +167,7 @@ export default async function HomePage() {
         </div>
       </section>
       {/*Attacker section*/}
-      <section className="relative py-15 overflow-hidden" style={{
+      <section className="relative py-15 overflow-hidden bg-cover bg-no-repeat bg-center" style={{
           backgroundImage: `url(${urlFor(home.changeBackgroundImage).url()})`,
         }}>
 
@@ -248,7 +248,7 @@ export default async function HomePage() {
       <section className="py-30 bg-black">
         <div className="max-w-7xl mx-auto px-6">
 
-          <h2 className="text-9xl font-bold text-center mb-16 text-white">
+          <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-9xl font-bold text-center mb-16 text-white">
             {home?.differentiationSectionTitle}
           </h2>
 
@@ -304,7 +304,7 @@ export default async function HomePage() {
                 {home?.processSmallTitle}
               </p>
 
-              <h2 className="text-5xl">
+              <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-9xl">
                 {home?.processTitle}
               </h2>
 
@@ -423,7 +423,7 @@ export default async function HomePage() {
             {/* Left Column */}
             <div>
 
-              <h2 className="text-5xl mb-8">
+              <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-9xl mb-8">
                 {home?.demoTitle}
               </h2>
 
