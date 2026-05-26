@@ -1,3 +1,4 @@
+export const revalidate = 60;
 import Link from "next/link";
 import { client, urlFor } from "@/lib/integrations/sanity/sanity";
 import { text } from "stream/consumers";
