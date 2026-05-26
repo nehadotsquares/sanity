@@ -305,7 +305,7 @@ export default async function HomePage() {
                 {home?.processSmallTitle}
               </p>
 
-              <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-9xl">
+              <h2 className="text-5xl ">
                 {home?.processTitle}
               </h2>
 
@@ -424,7 +424,7 @@ export default async function HomePage() {
             {/* Left Column */}
             <div>
 
-              <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-9xl mb-8">
+              <h2 className="text-5xl mb-8">
                 {home?.demoTitle}
               </h2>
 
