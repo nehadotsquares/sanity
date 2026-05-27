@@ -1,7 +1,6 @@
 export const revalidate = 60;
 import Link from "next/link";
 import { client, urlFor } from "@/lib/integrations/sanity/sanity";
-import { text } from "stream/consumers";
 
 async function getHomePage() {
 
@@ -58,25 +57,10 @@ async function getHomePage() {
   return await client.fetch(query);
 }
 
-async function getPosts() {
-
-  const query = `
-    *[_type == "post"]{
-      _id,
-      title,
-      slug,
-      image
-    }
-  `;
-
-  return await client.fetch(query);
-}
-
 export default async function HomePage() {
 
   const home = await getHomePage();
   console.log(home);
-  const posts = await getPosts();
 
   return (
     <div>
