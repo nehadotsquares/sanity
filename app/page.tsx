@@ -120,7 +120,7 @@ export default async function HomePage() {
       {/*validation section*/}
       <section className="max-w-5xl mx-auto px-5 py-24 text-center bg-white">
 
-        <h2 className="text-5xl font-bold mb-6">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
           {home?.validationTitle}
         </h2>
 
@@ -197,7 +197,7 @@ export default async function HomePage() {
                 {home?.changeSmallTitle}
               </p>
 
-              <h2 className="text-5xl mb-6 leading-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-6 leading-tight">
                 {home?.changeTitle}
               </h2>
 
@@ -222,7 +222,7 @@ export default async function HomePage() {
                 {home?.solutionSmallTitle}
               </p>
 
-              <h2 className="text-5xl mb-6 leading-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-6 leading-tight">
                 {home?.solutionTitle}
               </h2>
 
@@ -246,7 +246,7 @@ export default async function HomePage() {
         </div>
       </section>
       {/*Diffrentiation*/}
-      <section className="py-30 bg-black">
+      <section className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-6">
 
           <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-9xl font-bold text-center mb-16 text-white">
@@ -305,7 +305,7 @@ export default async function HomePage() {
                 {home?.processSmallTitle}
               </p>
 
-              <h2 className="text-5xl ">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
                 {home?.processTitle}
               </h2>
 
@@ -424,7 +424,7 @@ export default async function HomePage() {
             {/* Left Column */}
             <div>
 
-              <h2 className="text-5xl mb-8">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-8">
                 {home?.demoTitle}
               </h2>
 
