@@ -83,7 +83,7 @@ export default function ContactPage() {
   }
 
   return (
-    <div>
+    <div style={{ background: "#fcfcfc" }}>
 
       {/* Hero Section */}
       <section
@@ -120,7 +120,7 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
 
           {/* LEFT SIDE */}
-          <div className="bg-white p-10">
+          <div className="p-10">
 
             <h2 className="text-4xl font-bold mb-6">
               Get In Touch
