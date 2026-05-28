@@ -27,6 +27,29 @@ export const navigation = defineType({
               name: "link",
               title: "Link",
               type: "string",
+              description: "Use this if there is no submenu",
+            },
+            {
+              name: "children",
+              title: "Sub Menu Items",
+              type: "array",
+              of: [
+                {
+                  type: "object",
+                  fields: [
+                    {
+                      name: "title",
+                      title: "Title",
+                      type: "string",
+                    },
+                    {
+                      name: "link",
+                      title: "Link",
+                      type: "string",
+                    },
+                  ],
+                },
+              ],
             },
           ],
         },
