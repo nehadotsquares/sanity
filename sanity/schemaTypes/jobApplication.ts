@@ -1,0 +1,83 @@
+import { defineType, defineField } from "sanity";
+
+export default defineType({
+  name: "jobApplication",
+  title: "Job Applications",
+  type: "document",
+
+  fields: [
+
+    defineField({
+      name: "jobTitle",
+      title: "Job Title",
+      type: "string",
+    }),
+
+    defineField({
+      name: "jobSlug",
+      title: "Job Slug",
+      type: "string",
+    }),
+
+    defineField({
+      name: "fullName",
+      title: "Full Name",
+      type: "string",
+    }),
+
+    defineField({
+      name: "email",
+      title: "Email",
+      type: "string",
+    }),
+
+    defineField({
+      name: "location",
+      title: "Location",
+      type: "string",
+    }),
+
+    defineField({
+      name: "linkedin",
+      title: "LinkedIn",
+      type: "string",
+    }),
+
+    defineField({
+      name: "portfolio",
+      title: "Portfolio",
+      type: "string",
+    }),
+
+    defineField({
+      name: "authorized",
+      title: "Authorized To Work",
+      type: "string",
+    }),
+
+    defineField({
+      name: "sponsorship",
+      title: "Visa Sponsorship",
+      type: "string",
+    }),
+
+    defineField({
+      name: "whyInterested",
+      title: "Why Interested",
+      type: "text",
+    }),
+
+    defineField({
+      name: "challenge",
+      title: "Challenge Description",
+      type: "text",
+    }),
+
+    defineField({
+      name: "hearAboutUs",
+      title: "How Did You Hear About Us",
+      type: "string",
+    }),
+
+  ],
+});
