@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { PortableText } from "@portabletext/react";
 import { toast } from "sonner";
 
 export default function JobTabs({ job, }: { job: any; }) {
 
     const [activeTab, setActiveTab] = useState("about");
+    const fileInputRef = useRef<HTMLInputElement | null>(null);
     const [form, setForm] = useState({
         full_name: "",
         email: "",
@@ -20,7 +21,7 @@ export default function JobTabs({ job, }: { job: any; }) {
         description: "",
         about_us: "", 
     });
-
+    const [loading, setLoading] = useState(false);
     const [errors, setErrors] = useState<any>({});
     const validateForm = () => {
 
@@ -72,64 +73,103 @@ export default function JobTabs({ job, }: { job: any; }) {
 
         setErrors(newErrors);
 
+        const firstErrorField = Object.keys(newErrors)[0];
+
+        if (firstErrorField) {
+
+            const element = document.querySelector(
+                `[name="${firstErrorField}"]`
+            ) as HTMLElement | null;
+
+            if (element) {
+
+                element.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center",
+                });
+
+                setTimeout(() => {
+                    element.focus();
+                }, 300);
+            }
+        }
+
         return Object.keys(newErrors).length === 0;
     };
     const handleSubmit = async (e: any) => {
         
         e.preventDefault();
         if (!validateForm()) return;
+        try {
 
-        const formData = new FormData(e.target);
-        formData.append("jobTitle", job.title);
-        formData.append("jobSlug", job.slug.current);
+            setLoading(true);
 
-        formData.append("fullName", form.full_name);
-        formData.append("email", form.email);
-        formData.append("location", form.location);
+            const formData = new FormData(e.target);
+            formData.append("jobTitle", job.title);
+            formData.append("jobSlug", job.slug.current);
 
-        formData.append("authorized", form.authorized);
-        formData.append("sponsorship", form.sponsorship);
+            formData.append("fullName", form.full_name);
+            formData.append("email", form.email);
+            formData.append("location", form.location);
 
-        formData.append("linkedin", form.linkedin_profile);
-        formData.append("portfolio", form.portfolio_github);
+            formData.append("authorized", form.authorized);
+            formData.append("sponsorship", form.sponsorship);
 
-        formData.append("whyInterested", form.interest);
-        formData.append("challenge", form.description);
+            formData.append("linkedin", form.linkedin_profile);
+            formData.append("portfolio", form.portfolio_github);
 
-        formData.append("hearAboutUs", form.about_us);
+            formData.append("whyInterested", form.interest);
+            formData.append("challenge", form.description);
 
-        // FILE
-        if (form.resume) {
-            formData.append("resume", form.resume);
-        }
+            formData.append("hearAboutUs", form.about_us);
 
-        const res = await fetch("/api/job-application", {
-            method: "POST",
-            body: formData,
-        });
+            // FILE
+            if (form.resume) {
+                formData.append("resume", form.resume);
+            }
 
-        const data = await res.json();
-
-        console.log(data);
-
-        if (data.success) {
-            // alert("Application submitted successfully!");
-            toast.success("Message sent successfully!");
-            setForm({
-                full_name: "",
-                email: "",
-                location: "",
-                authorized: "",
-                sponsorship: "",
-                linkedin_profile: "",
-                portfolio_github: "",
-                resume: null,
-                interest: "",
-                description: "",
-                about_us: ""
+            const res = await fetch("/api/job-application", {
+                method: "POST",
+                body: formData,
             });
+
+            const data = await res.json();
+
+            console.log(data);
+
+            if (data.success) {
+                // alert("Application submitted successfully!");
+                toast.success("Message sent successfully!");
+                setForm({
+                    full_name: "",
+                    email: "",
+                    location: "",
+                    authorized: "",
+                    sponsorship: "",
+                    linkedin_profile: "",
+                    portfolio_github: "",
+                    resume: null,
+                    interest: "",
+                    description: "",
+                    about_us: ""
+                });
+
+                if (fileInputRef.current) {
+                    fileInputRef.current.value = "";
+                }
+            }
+        } catch (error) {
+
+        console.error(error);
+
+        toast.error("Something went wrong");
+
+        } finally {
+
+            setLoading(false);
         }
     };
+        
     const components = {
     block: {
       normal: ({ children }: any) => (
@@ -167,6 +207,19 @@ export default function JobTabs({ job, }: { job: any; }) {
   };
     return (
         <div>
+            {/* loader */}
+            {loading && (
+                <div className="fixed inset-0 bg-black/40 z-50 flex items-center justify-center">
+
+                    <div className="bg-white rounded-2xl px-8 py-6 flex flex-col items-center gap-4 shadow-xl">
+
+                        {/* Spinner */}
+                        <div className="w-10 h-10 border-4 border-gray-300 border-t-black rounded-full animate-spin"></div>
+
+                    </div>
+
+                </div>
+            )}
 
             {/* Tabs */}
             <div className="flex gap-6 mb-5">
@@ -213,6 +266,7 @@ export default function JobTabs({ job, }: { job: any; }) {
 
             {/* Application Tab */}
             {activeTab === "application" && (
+                
                 <form  onSubmit={handleSubmit} className="space-y-10 border rounded-3xl p-8 bg-[#f4f4f5] border-[#a1a1aa]">
 
                     {/* SECTION HEADER */}
@@ -281,7 +335,7 @@ export default function JobTabs({ job, }: { job: any; }) {
 
                                 <input
                                     type="file"
-                                    key={form.resume ? "filled" : "empty"}
+                                    ref={fileInputRef}
                                     name="resume"
                                     accept=".pdf,.doc,.docx"
                                     onChange={(e) =>
@@ -511,7 +565,7 @@ export default function JobTabs({ job, }: { job: any; }) {
                             </h3>
 
                             <p className="text-gray-600 mt-1">
-                                We use AI every day — it’s fundamental to XBOW! But for these next questions, we’re more interested in your voice. Keep it short, thoughtful, and human.
+                                We use AI every day — it’s fundamental to Company_name! But for these next questions, we’re more interested in your voice. Keep it short, thoughtful, and human.
                             </p>
                         </div>
 
@@ -582,9 +636,14 @@ export default function JobTabs({ job, }: { job: any; }) {
 
                         <button
                             type="submit"
-                            className="w-full bg-[#000] text-white rounded-full py-3 font-semibold text-lg hover:opacity-90 transition"
+                            disabled={loading}
+                            className={`w-full rounded-full py-3 font-semibold text-lg transition ${
+                                loading
+                                ? "bg-gray-400 cursor-not-allowed"
+                                : "bg-black hover:opacity-90 text-white"
+                            }`}
                         >
-                            Submit Application
+                            {loading ? "Submitting Application..." : "Submit Application"}
                         </button>
 
                     </div>

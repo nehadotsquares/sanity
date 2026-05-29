@@ -48,7 +48,7 @@ export default async function JobPage({
           {/* LEFT SIDEBAR */}
           <aside className="lg:sticky lg:top-24 h-fit">
 
-            <div className="border rounded-3xl p-6 space-y-6 bg-[#f4f4f5]">
+            <div className="border border-[#a1a1aa] rounded-3xl p-6 space-y-6 bg-[#f4f4f5]">
 
               <div>
                 <p className="text-sm text-gray-500 mb-1">
