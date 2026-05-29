@@ -158,11 +158,14 @@ export default function JobTabs({ job, }: { job: any; }) {
                     fileInputRef.current.value = "";
                 }
             }
+            else {
+                toast.error(data.message || "Something went wrong");
+            }
         } catch (error) {
 
-        console.error(error);
+            console.error(error);
 
-        toast.error("Something went wrong");
+            toast.error("Network or server error");
 
         } finally {
 
