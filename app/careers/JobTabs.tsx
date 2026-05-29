@@ -80,38 +80,37 @@ export default function JobTabs({ job, }: { job: any; }) {
         if (!validateForm()) return;
 
         const formData = new FormData(e.target);
+        formData.append("jobTitle", job.title);
+        formData.append("jobSlug", job.slug.current);
 
-        const payload = {
-            jobTitle: job.title,
-            jobSlug: job.slug.current,
+        formData.append("fullName", form.full_name);
+        formData.append("email", form.email);
+        formData.append("location", form.location);
 
-            fullName: formData.get("full_name"),
-            email: formData.get("email"),
-            location: formData.get("location"),
+        formData.append("authorized", form.authorized);
+        formData.append("sponsorship", form.sponsorship);
 
-            authorized: formData.get("authorized"),
-            sponsorship: formData.get("sponsorship"),
+        formData.append("linkedin", form.linkedin_profile);
+        formData.append("portfolio", form.portfolio_github);
 
-            linkedin: formData.get("linkedin_profile"),
-            portfolio: formData.get("portfolio_github"),
+        formData.append("whyInterested", form.interest);
+        formData.append("challenge", form.description);
 
-            whyInterested: formData.get("interest"),
-            challenge: formData.get("description"),
+        formData.append("hearAboutUs", form.about_us);
 
-            hearAboutUs: formData.get("about_us"),
-        };
+        // FILE
+        if (form.resume) {
+            formData.append("resume", form.resume);
+        }
 
         const res = await fetch("/api/job-application", {
             method: "POST",
-            headers: {
-            "Content-Type": "application/json",
-            },
-            body: JSON.stringify(payload),
+            body: formData,
         });
 
         const data = await res.json();
 
-        // console.log(data);
+        console.log(data);
 
         if (data.success) {
             // alert("Application submitted successfully!");
