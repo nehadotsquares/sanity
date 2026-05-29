@@ -28,10 +28,10 @@ export default defineType({
       type: "string",
       options: {
         list: [
-          { title: "Engineering", value: "engineering" },
+          { title: "Engineering", value: "Engineering" },
           { title: "GTM", value: "GTM" },
-          { title: "IT & Security", value: "it & security" },
-          { title: "Marketing", value: "marketing"  },
+          { title: "IT & Security", value: "IT & Security" },
+          { title: "Marketing", value: "Marketing"  },
           { title: "Product", value: "Product" },
         ],
       },
@@ -43,9 +43,9 @@ export default defineType({
       type: "string",
       options: {
         list: [
-          { title: "Full Time", value: "full-time" },
-          { title: "Part Time", value: "part-time" },
-          { title: "Contract", value: "contract" },
+          { title: "Full Time", value: "Full Time" },
+          { title: "Part Time", value: "Part Time" },
+          { title: "Contract", value: "Contract" },
         ],
       },
     }),
@@ -62,9 +62,9 @@ export default defineType({
       type: "string",
       options: {
         list: [
-          { title: "Remote", value: "remote" },
-          { title: "Hybrid", value: "hybrid" },
-          { title: "Onsite", value: "onsite" },
+          { title: "Remote", value: "Remote" },
+          { title: "Hybrid", value: "Hybrid" },
+          { title: "Onsite", value: "Onsite" },
         ],
       },
     }),
@@ -81,4 +81,19 @@ export default defineType({
       type: "richText",
     }),
   ],
+  preview: {
+    select: {
+      title: "title",
+      department: "department",
+      location: "location",
+      locationType: "locationType",
+    },
+
+    prepare({ title, department, location, locationType }) {
+      return {
+        title,
+        subtitle: `${department} • ${location} • ${locationType}`,
+      };
+    },
+  },
 });

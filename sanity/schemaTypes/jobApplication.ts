@@ -28,7 +28,7 @@ export default defineType({
           { title: "Engineering", value: "Engineering" },
           { title: "Product", value: "Product" },
           { title: "Marketing", value: "Marketing" },
-          { title: "It & Security", value: "It & Security" },
+          { title: "It & Security", value: "IT & Security" },
           { title: "GTM", value: "GTM" },
         ],
       },
