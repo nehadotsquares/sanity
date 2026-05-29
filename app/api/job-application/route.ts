@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { writeClient } from "@/lib/integrations/sanity/sanity";
-
+export const runtime = "nodejs";
 export async function POST(req: Request) {
 
   try {
