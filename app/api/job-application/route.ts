@@ -22,6 +22,7 @@ export async function POST(req: Request) {
       _type: "jobApplication",
       jobTitle: formData.get("jobTitle"),
       jobSlug: formData.get("jobSlug"),
+      department: formData.get("department"),
 
       fullName: formData.get("fullName"),
       email: formData.get("email"),

@@ -20,6 +20,21 @@ export default defineType({
     }),
 
     defineField({
+      name: "department",
+      title: "Department",
+      type: "string",
+      options: {
+        list: [
+          { title: "Engineering", value: "Engineering" },
+          { title: "Product", value: "Product" },
+          { title: "Marketing", value: "Marketing" },
+          { title: "It & Security", value: "It & Security" },
+          { title: "GTM", value: "GTM" },
+        ],
+      },
+    }),
+
+    defineField({
       name: "fullName",
       title: "Full Name",
       type: "string",
@@ -89,4 +104,21 @@ export default defineType({
     }),
 
   ],
+
+  preview: {
+    select: {
+      title: "jobTitle",
+      department: "department",
+      location: "location",
+    },
+
+    prepare(selection) {
+      const { title, department, location } = selection;
+
+      return {
+        title,
+        subtitle: `${department} • ${location}`,
+      };
+    },
+  },
 });

@@ -107,6 +107,7 @@ export default function JobTabs({ job, }: { job: any; }) {
             const formData = new FormData(e.target);
             formData.append("jobTitle", job.title);
             formData.append("jobSlug", job.slug.current);
+            formData.append("department", job.department);
 
             formData.append("fullName", form.full_name);
             formData.append("email", form.email);
