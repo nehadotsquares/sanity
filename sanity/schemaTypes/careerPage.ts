@@ -17,5 +17,11 @@ export default defineType({
       title: "Description",
       type: "richText",
     }),
+
+    defineField({
+      name: "careerText",
+      title: "Career Text",
+      type: "text",
+    }),
   ],
 });

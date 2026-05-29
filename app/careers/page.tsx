@@ -201,7 +201,7 @@ export default async function CareersPage() {
             </section>
 
             <section>
-                <div className="container mx-auto max-w-3xl px-4 mb-5">We believe in people who are driven by curiosity and a willingness to learn. Even if you don't check every box, we encourage you to apply if you're excited about the role and our mission.</div>
+                <div className="container mx-auto max-w-3xl px-4 mb-5">{careerPage.careerText}</div>
             </section>
         </div>
     );
