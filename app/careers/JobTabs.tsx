@@ -260,7 +260,12 @@ export default function JobTabs({ job, }: { job: any; }) {
                     </div>
 
                     <div className="mt-12">
-                        <button onClick={() => setActiveTab("application")}
+                        <button onClick={() => {setActiveTab("application");
+                                window.scrollTo({
+                                    top: 0,
+                                    behavior: "smooth",
+                                });
+                            }}
                             className="w-full bg-[#000] text-white rounded-full px-8 py-3 font-semibold hover:opacity-90 transition">
                             Apply for this job
                         </button>
