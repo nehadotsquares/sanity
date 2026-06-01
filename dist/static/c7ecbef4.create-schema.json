@@ -14,8 +14,29 @@
                 "type": "string"
               },
               {
+                "description": "Use this if there is no submenu",
                 "name": "link",
                 "type": "string"
+              },
+              {
+                "of": [
+                  {
+                    "fields": [
+                      {
+                        "name": "title",
+                        "type": "string"
+                      },
+                      {
+                        "name": "link",
+                        "type": "string"
+                      }
+                    ],
+                    "type": "object"
+                  }
+                ],
+                "name": "children",
+                "type": "array",
+                "title": "Sub Menu Items"
               }
             ],
             "type": "object"
@@ -376,6 +397,361 @@
     "fields": [
       {
         "name": "title",
+        "type": "string",
+        "title": "Page Title"
+      },
+      {
+        "options": {
+          "source": "title"
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "custom"
+              }
+            ]
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "of": [
+          {
+            "type": "heroSection"
+          },
+          {
+            "type": "featureSection"
+          },
+          {
+            "type": "testSection"
+          },
+          {
+            "type": "resultSection"
+          },
+          {
+            "type": "solutionSection"
+          },
+          {
+            "type": "singleAgentSection"
+          },
+          {
+            "type": "designedSection"
+          },
+          {
+            "type": "productionSection"
+          },
+          {
+            "type": "securitySection"
+          }
+        ],
+        "name": "sections",
+        "type": "array"
+      }
+    ],
+    "name": "platformPage",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "name": "buttonTitle",
+        "type": "string"
+      },
+      {
+        "name": "buttonLink",
+        "type": "string"
+      },
+      {
+        "name": "leftImage",
+        "type": "image"
+      },
+      {
+        "name": "rightImage",
+        "type": "image"
+      }
+    ],
+    "name": "heroSection",
+    "type": "object"
+  },
+  {
+    "fields": [
+      {
+        "name": "icon",
+        "type": "image"
+      },
+      {
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "name": "image",
+        "type": "image"
+      }
+    ],
+    "name": "featureSection",
+    "type": "object"
+  },
+  {
+    "fields": [
+      {
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 10
+              },
+              {
+                "flag": "min",
+                "constraint": 1
+              }
+            ]
+          }
+        ],
+        "of": [
+          {
+            "fields": [
+              {
+                "name": "title",
+                "type": "string"
+              },
+              {
+                "name": "description",
+                "type": "text"
+              },
+              {
+                "name": "iconImage",
+                "type": "image"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "cards",
+        "type": "array"
+      }
+    ],
+    "name": "testSection",
+    "type": "object"
+  },
+  {
+    "fields": [
+      {
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "name": "leftImage",
+        "type": "image"
+      },
+      {
+        "name": "rightImage",
+        "type": "image"
+      },
+      {
+        "name": "sectionImage",
+        "type": "image",
+        "title": "Section image"
+      }
+    ],
+    "name": "resultSection",
+    "type": "object"
+  },
+  {
+    "fields": [
+      {
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 10
+              },
+              {
+                "flag": "min",
+                "constraint": 1
+              }
+            ]
+          }
+        ],
+        "of": [
+          {
+            "fields": [
+              {
+                "name": "title",
+                "type": "string"
+              },
+              {
+                "name": "subTitle",
+                "type": "string"
+              },
+              {
+                "name": "description",
+                "type": "text"
+              },
+              {
+                "name": "iconImage",
+                "type": "image"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "cards",
+        "type": "array"
+      }
+    ],
+    "name": "solutionSection",
+    "type": "object"
+  },
+  {
+    "fields": [
+      {
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "name": "image",
+        "type": "image"
+      }
+    ],
+    "name": "singleAgentSection",
+    "type": "object"
+  },
+  {
+    "fields": [
+      {
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "name": "subHeading",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 10
+              },
+              {
+                "flag": "min",
+                "constraint": 1
+              }
+            ]
+          }
+        ],
+        "of": [
+          {
+            "fields": [
+              {
+                "name": "title",
+                "type": "string"
+              },
+              {
+                "name": "description",
+                "type": "text"
+              },
+              {
+                "name": "iconImage",
+                "type": "image"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "cards",
+        "type": "array"
+      }
+    ],
+    "name": "designedSection",
+    "type": "object"
+  },
+  {
+    "fields": [
+      {
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "name": "image",
+        "type": "image"
+      }
+    ],
+    "name": "productionSection",
+    "type": "object"
+  },
+  {
+    "fields": [
+      {
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "name": "buttonTitle",
+        "type": "string"
+      },
+      {
+        "name": "buttonLink",
+        "type": "string",
+        "title": "Button link"
+      }
+    ],
+    "name": "securitySection",
+    "type": "object"
+  },
+  {
+    "fields": [
+      {
+        "name": "title",
         "type": "string"
       },
       {
@@ -709,5 +1085,340 @@
     ],
     "name": "contactSubmission",
     "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "name": "title",
+        "type": "string",
+        "title": "Page Title"
+      },
+      {
+        "name": "description",
+        "type": "richText"
+      },
+      {
+        "name": "careerText",
+        "type": "text"
+      }
+    ],
+    "name": "careerPage",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "title",
+        "type": "string",
+        "title": "Department Name"
+      }
+    ],
+    "name": "department",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "name": "title",
+        "type": "string",
+        "title": "Job Title"
+      },
+      {
+        "options": {
+          "source": "title",
+          "maxLength": 96
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "custom"
+              }
+            ]
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "to": [
+          {
+            "type": "department"
+          }
+        ],
+        "name": "department",
+        "type": "reference"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Full Time",
+              "value": "Full Time"
+            },
+            {
+              "title": "Part Time",
+              "value": "Part Time"
+            },
+            {
+              "title": "Contract",
+              "value": "Contract"
+            }
+          ]
+        },
+        "name": "employmentType",
+        "type": "string"
+      },
+      {
+        "name": "location",
+        "type": "string"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Remote",
+              "value": "Remote"
+            },
+            {
+              "title": "Hybrid",
+              "value": "Hybrid"
+            },
+            {
+              "title": "Onsite",
+              "value": "Onsite"
+            }
+          ]
+        },
+        "name": "locationType",
+        "type": "string"
+      },
+      {
+        "name": "compensation",
+        "type": "string"
+      },
+      {
+        "name": "description",
+        "type": "richText",
+        "title": "Job Description"
+      }
+    ],
+    "name": "job",
+    "type": "document"
+  },
+  {
+    "of": [
+      {
+        "lists": [
+          {
+            "value": "bullet",
+            "title": "Bulleted list"
+          },
+          {
+            "value": "number",
+            "title": "Numbered list"
+          }
+        ],
+        "marks": {
+          "annotations": [
+            {
+              "i18nTitleKey": "inputs.portable-text.annotation.link",
+              "options": {
+                "modal": {
+                  "type": "popover"
+                }
+              },
+              "fields": [
+                {
+                  "validation": [
+                    {
+                      "level": "error",
+                      "rules": [
+                        {
+                          "flag": "uri",
+                          "constraint": {
+                            "options": {
+                              "scheme": [
+                                "/^http$/",
+                                "/^https$/",
+                                "/^tel$/",
+                                "/^mailto$/"
+                              ],
+                              "allowRelative": true,
+                              "relativeOnly": false,
+                              "allowCredentials": false
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "description": "A valid web, email, phone, or relative link.",
+                  "name": "href",
+                  "type": "url",
+                  "title": "Link"
+                }
+              ],
+              "name": "link",
+              "type": "object"
+            }
+          ],
+          "decorators": [
+            {
+              "value": "strong",
+              "title": "Strong"
+            },
+            {
+              "value": "em",
+              "title": "Italic"
+            },
+            {
+              "value": "code",
+              "title": "Code"
+            },
+            {
+              "value": "underline",
+              "title": "Underline"
+            },
+            {
+              "value": "strike-through",
+              "title": "Strike"
+            }
+          ]
+        },
+        "of": [],
+        "styles": [
+          {
+            "value": "normal",
+            "title": "Normal"
+          },
+          {
+            "value": "h1",
+            "title": "Heading 1"
+          },
+          {
+            "value": "h2",
+            "title": "Heading 2"
+          },
+          {
+            "value": "h3",
+            "title": "Heading 3"
+          },
+          {
+            "value": "h4",
+            "title": "Heading 4"
+          },
+          {
+            "value": "h5",
+            "title": "Heading 5"
+          },
+          {
+            "value": "h6",
+            "title": "Heading 6"
+          },
+          {
+            "value": "blockquote",
+            "title": "Quote"
+          }
+        ],
+        "type": "block"
+      }
+    ],
+    "name": "richText",
+    "type": "array"
+  },
+  {
+    "fields": [
+      {
+        "name": "jobTitle",
+        "type": "string"
+      },
+      {
+        "name": "jobSlug",
+        "type": "string"
+      },
+      {
+        "name": "department",
+        "type": "string"
+      },
+      {
+        "name": "fullName",
+        "type": "string"
+      },
+      {
+        "name": "email",
+        "type": "string"
+      },
+      {
+        "name": "location",
+        "type": "string"
+      },
+      {
+        "options": {
+          "accept": ".pdf,.doc,.docx"
+        },
+        "name": "resume",
+        "type": "file"
+      },
+      {
+        "name": "linkedin",
+        "type": "string",
+        "title": "LinkedIn"
+      },
+      {
+        "name": "portfolio",
+        "type": "string"
+      },
+      {
+        "name": "authorized",
+        "type": "string",
+        "title": "Authorized To Work"
+      },
+      {
+        "name": "sponsorship",
+        "type": "string",
+        "title": "Visa Sponsorship"
+      },
+      {
+        "name": "whyInterested",
+        "type": "text"
+      },
+      {
+        "name": "challenge",
+        "type": "text",
+        "title": "Challenge Description"
+      },
+      {
+        "name": "hearAboutUs",
+        "type": "string",
+        "title": "How Did You Hear About Us"
+      }
+    ],
+    "name": "jobApplication",
+    "type": "document",
+    "title": "Job Applications"
   }
 ]
