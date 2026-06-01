@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 import { toast } from "sonner";
 type ContactFormType = {
   name: string;
@@ -12,8 +13,10 @@ type FormErrorsType = {
   name?: string;
   email?: string;
   message?: string;
+  gcaptcha?: string;
 };
 export default function ContactPage() {
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   const [form, setForm] = useState<ContactFormType>({
     name: "",
@@ -24,6 +27,7 @@ export default function ContactPage() {
   const [errors, setErrors] = useState<FormErrorsType>({});
 
   const [success, setSuccess] = useState("");
+  const [captchaToken, setCaptchaToken] = useState("");
 
   function validate() {
     const newErrors: Partial<FormErrorsType> = {};
@@ -48,6 +52,10 @@ export default function ContactPage() {
       newErrors.message = "Message must be at least 10 characters";
     }
 
+    if (!captchaToken) {
+      newErrors.gcaptcha = "Please verify that you are not a robot";
+    }
+
     setErrors(newErrors);
 
     return Object.keys(newErrors).length === 0;
@@ -61,7 +69,13 @@ export default function ContactPage() {
 
     const res = await fetch("/api/contact", {
       method: "POST",
-      body: JSON.stringify(form),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        ...form,
+        captchaToken,
+      }),
     });
 
     if (res.ok) {
@@ -77,8 +91,9 @@ export default function ContactPage() {
         email: "",
         message: "",
       });
-
+      setCaptchaToken("");
       setErrors({});
+      recaptchaRef.current?.reset();
     }
   }
 
@@ -237,6 +252,29 @@ export default function ContactPage() {
               {errors.message && (
                 <p className="text-red-500 text-sm">
                   {errors.message}
+                </p>
+              )}
+            </div>
+
+            <div className="space-y-1">
+             
+              <ReCAPTCHA
+                ref={recaptchaRef}
+                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+                onChange={(token: string | null) => { 
+                  setCaptchaToken(token || "");
+                  if (token) {
+                    setErrors((prev) => ({
+                      ...prev,
+                      gcaptcha: undefined,
+                    }));
+                  }
+                }}
+              />
+
+              {errors.gcaptcha && (
+                <p className="text-red-500 text-sm">
+                  {errors.gcaptcha}
                 </p>
               )}
             </div>
