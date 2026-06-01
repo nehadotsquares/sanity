@@ -13,7 +13,6 @@ import SecuritySection from "@/components/platform/SecuritySection";
 
 export default async function PlatformPage() {
   const pageData = await client.fetch(PLATFORM_PAGE_QUERY);
-    console.log(pageData);
 
   if (!pageData) {
     return <div>Platform page not found</div>;
