@@ -22,16 +22,7 @@ export default defineType({
     defineField({
       name: "department",
       title: "Department",
-      type: "string",
-      options: {
-        list: [
-          { title: "Engineering", value: "Engineering" },
-          { title: "Product", value: "Product" },
-          { title: "Marketing", value: "Marketing" },
-          { title: "It & Security", value: "IT & Security" },
-          { title: "GTM", value: "GTM" },
-        ],
-      },
+      type: "string"
     }),
 
     defineField({

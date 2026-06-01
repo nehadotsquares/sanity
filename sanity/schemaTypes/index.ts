@@ -19,8 +19,10 @@ import careerPage from "./careerPage";
 import job from "./documents/job";
 import richText from "./objects/richText";
 import jobApplication from "./jobApplication";
+import department from "./department";
+
 export const schemaTypes = [navigation, footer, menu, homePage,
     platformPage, heroSection, featureSection, testSection, resultSection, solutionSection, singleAgentSection, designedSection, productionSection, securitySection,
     page, post, contactSubmission,
-    careerPage, job, richText, jobApplication,
+    careerPage, department, job, richText, jobApplication, 
 ]

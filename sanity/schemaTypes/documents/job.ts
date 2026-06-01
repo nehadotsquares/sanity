@@ -25,16 +25,9 @@ export default defineType({
     defineField({
       name: "department",
       title: "Department",
-      type: "string",
-      options: {
-        list: [
-          { title: "Engineering", value: "Engineering" },
-          { title: "GTM", value: "GTM" },
-          { title: "IT & Security", value: "IT & Security" },
-          { title: "Marketing", value: "Marketing"  },
-          { title: "Product", value: "Product" },
-        ],
-      },
+      type: "reference",
+      to: [{ type: "department" }],
+      validation: (Rule) => Rule.required(),
     }),
 
     defineField({
@@ -84,7 +77,7 @@ export default defineType({
   preview: {
     select: {
       title: "title",
-      department: "department",
+      department: "department.title",
       location: "location",
       locationType: "locationType",
     },
@@ -92,7 +85,7 @@ export default defineType({
     prepare({ title, department, location, locationType }) {
       return {
         title,
-        subtitle: `${department} • ${location} • ${locationType}`,
+        subtitle: `${department || "No Department"} • ${location || ""} • ${locationType || ""}`,
       };
     },
   },
