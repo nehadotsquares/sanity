@@ -44,8 +44,14 @@ export default function Header({ navigation }: HeaderProps) {
               ) : (
 
                 /* Dropdown Parent */
-                <div className="cursor-pointer">
-                  {item.title}
+                <div className="flex items-center gap-1 cursor-pointer group">
+                  <span>{item.title}</span>
+
+                    {item.children?.length > 0 && (
+                      <span className="text-md transition-transform group-hover:rotate-180">
+                        ▾
+                      </span>
+                    )}
 
                   {/* Dropdown */}
                   <div className="absolute top-full left-0 hidden group-hover:flex flex-col bg-white shadow-lg rounded-lg min-w-[200px] py-2 border border-[#0000001a]">
