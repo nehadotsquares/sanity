@@ -144,6 +144,31 @@
   {
     "fields": [
       {
+        "name": "metaTitle",
+        "type": "string"
+      },
+      {
+        "name": "metaDescription",
+        "type": "text"
+      },
+      {
+        "name": "ogImage",
+        "type": "image",
+        "title": "OG Image"
+      }
+    ],
+    "name": "seo",
+    "type": "object",
+    "title": "SEO"
+  },
+  {
+    "fields": [
+      {
+        "name": "seo",
+        "type": "seo",
+        "title": "SEO"
+      },
+      {
         "name": "heroTitle",
         "type": "string"
       },
@@ -395,6 +420,11 @@
   },
   {
     "fields": [
+      {
+        "name": "seo",
+        "type": "seo",
+        "title": "SEO"
+      },
       {
         "name": "title",
         "type": "string",
@@ -1089,6 +1119,11 @@
   {
     "fields": [
       {
+        "name": "seo",
+        "type": "seo",
+        "title": "SEO"
+      },
+      {
         "name": "title",
         "type": "string",
         "title": "Page Title"
@@ -1420,5 +1455,120 @@
     "name": "jobApplication",
     "type": "document",
     "title": "Job Applications"
+  },
+  {
+    "fields": [
+      {
+        "name": "seo",
+        "type": "seo",
+        "title": "SEO"
+      },
+      {
+        "of": [
+          {
+            "type": "leadershipHeroSection"
+          },
+          {
+            "type": "leadershipTeamSection"
+          },
+          {
+            "type": "leadershipContentSection"
+          }
+        ],
+        "name": "sections",
+        "type": "array"
+      }
+    ],
+    "name": "leadershipPage",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "name": "buttonText",
+        "type": "string"
+      },
+      {
+        "name": "buttonLink",
+        "type": "string"
+      }
+    ],
+    "name": "leadershipHeroSection",
+    "type": "object"
+  },
+  {
+    "fields": [
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "name": "image",
+                "type": "image"
+              },
+              {
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "name": "designation",
+                "type": "string"
+              },
+              {
+                "name": "linkedin",
+                "type": "string"
+              },
+              {
+                "name": "github",
+                "type": "string"
+              },
+              {
+                "name": "twitter",
+                "type": "string"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "leaders",
+        "type": "array"
+      }
+    ],
+    "name": "leadershipTeamSection",
+    "type": "object"
+  },
+  {
+    "fields": [
+      {
+        "name": "iconImage",
+        "type": "image"
+      },
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "name": "buttonText",
+        "type": "string"
+      },
+      {
+        "name": "buttonLink",
+        "type": "string"
+      },
+      {
+        "name": "image",
+        "type": "image"
+      }
+    ],
+    "name": "leadershipContentSection",
+    "type": "object"
   }
 ]

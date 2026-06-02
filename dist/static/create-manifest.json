@@ -1,5 +1,5 @@
 {
-  "createdAt": "2026-06-01T06:54:19.267Z",
+  "createdAt": "2026-06-02T13:24:27.602Z",
   "studioVersion": "5.28.0",
   "version": 3,
   "workspaces": [
@@ -13,7 +13,7 @@
       },
       "name": "default",
       "projectId": "9ufhkri8",
-      "schema": "c7ecbef4.create-schema.json",
+      "schema": "5eaee2e8.create-schema.json",
       "title": "sanity-blog",
       "tools": "ef87c8fe.create-tools.json"
     }
