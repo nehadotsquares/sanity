@@ -8,6 +8,20 @@ import { PortableText } from "@portabletext/react";
 import CareersList from "@/components/career/CareersList";
 import Link from "next/link";
 
+export async function generateMetadata() {
+  const pageData = await client.fetch(CAREER_PAGE_QUERY);
+
+  return {
+    title:
+      pageData?.seo?.metaTitle ||
+      pageData?.title,
+
+    description:
+      pageData?.seo?.metaDescription,
+  };
+}
+
+
 export default async function CareersPage() {
 
     const careerPage = await client.fetch(CAREER_PAGE_QUERY);
