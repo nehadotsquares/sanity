@@ -5,6 +5,7 @@ export default {
   type: "document",
 
   groups: [
+    { name: "seo", title: "SEO" },
     { name: "hero", title: "Hero" },
     { name: "validation", title: "Validation" },
     { name: "trusted", title: "Trusted" },
@@ -17,6 +18,13 @@ export default {
   ],
 
   fields: [
+    defineField({
+      name: "seo",
+      title: "SEO",
+      type: "seo",
+      group: "seo"
+    }),
+
     // Hero section
     defineField({
       name: "heroTitle",

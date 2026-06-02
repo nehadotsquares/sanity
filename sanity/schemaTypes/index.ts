@@ -20,8 +20,9 @@ import job from "./documents/job";
 import richText from "./objects/richText";
 import jobApplication from "./jobApplication";
 import department from "./department";
+import seo from "./seo";
 
-export const schemaTypes = [navigation, footer, menu, homePage,
+export const schemaTypes = [navigation, footer, menu, seo, homePage,
     platformPage, heroSection, featureSection, testSection, resultSection, solutionSection, singleAgentSection, designedSection, productionSection, securitySection,
     page, post, contactSubmission,
     careerPage, department, job, richText, jobApplication, 

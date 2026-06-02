@@ -6,6 +6,12 @@ async function getHomePage() {
 
   const query = `
     *[_type == "homePage"][0]{
+      seo{
+        metaTitle,
+        metaDescription,
+        ogImage
+      },
+
       heroTitle,
       heroSubtitle,
       heroImage,
@@ -55,6 +61,15 @@ async function getHomePage() {
   `;
 
   return await client.fetch(query);
+}
+
+export async function generateMetadata() {
+  const pageData = await getHomePage();
+
+  return {
+    title: pageData?.seo?.metaTitle,
+    description: pageData?.seo?.metaDescription,
+  };
 }
 
 export default async function HomePage() {

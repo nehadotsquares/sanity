@@ -11,6 +11,19 @@ import DesignedSection from "@/components/platform/DesignedSection";
 import ProductionSection from "@/components/platform/ProductionSection";
 import SecuritySection from "@/components/platform/SecuritySection";
 
+export async function generateMetadata() {
+  const pageData = await client.fetch(PLATFORM_PAGE_QUERY);
+
+  return {
+    title:
+      pageData?.seo?.metaTitle ||
+      pageData?.title,
+
+    description:
+      pageData?.seo?.metaDescription,
+  };
+}
+
 export default async function PlatformPage() {
   const pageData = await client.fetch(PLATFORM_PAGE_QUERY);
 

@@ -7,6 +7,12 @@ export default defineType({
 
   fields: [
     defineField({
+      name: "seo",
+      title: "SEO",
+      type: "seo",
+    }),
+
+    defineField({
       name: "title",
       title: "Page Title",
       type: "string",
