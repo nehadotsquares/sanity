@@ -21,9 +21,14 @@ import richText from "./objects/richText";
 import jobApplication from "./jobApplication";
 import department from "./department";
 import seo from "./seo";
+import leadershipPage from "./leadershipPage";
+import leadershipHeroSection from "./sections/leadership/leadershipHeroSection";
+import leadershipTeamSection from "./sections/leadership/leadershipTeamSection";
+import leadershipContentSection from "./sections/leadership/leadershipContentSection";
 
 export const schemaTypes = [navigation, footer, menu, seo, homePage,
     platformPage, heroSection, featureSection, testSection, resultSection, solutionSection, singleAgentSection, designedSection, productionSection, securitySection,
     page, post, contactSubmission,
     careerPage, department, job, richText, jobApplication, 
+    leadershipPage, leadershipHeroSection, leadershipTeamSection, leadershipContentSection
 ]
