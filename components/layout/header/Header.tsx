@@ -4,15 +4,18 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { urlFor } from "@/lib/integrations/sanity/sanity";
+import { useMenuStore } from "@/store/useMenuStore";
 
 type HeaderProps = {
   navigation: any;
 };
 
 export default function Header({ navigation }: HeaderProps) {
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<number | null>(null);
-
+  const open = useMenuStore((state) => state.open);
+  const setOpen = useMenuStore((state) => state.setOpen);
+  const toggleOpen = useMenuStore((state) => state.toggleOpen);
   return (
     <header className="bg-white text-black sticky top-0 z-50 border-b border-[#0000001a]">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -95,7 +98,8 @@ export default function Header({ navigation }: HeaderProps) {
         {/* Burger Button (Mobile) */}
         <button
           className="md:hidden text-2xl"
-          onClick={() => setOpen(!open)}
+          // onClick={() => setOpen(!open)}
+          onClick={toggleOpen}
         >
           ☰
         </button>
