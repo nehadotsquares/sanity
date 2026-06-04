@@ -1570,5 +1570,267 @@
     ],
     "name": "leadershipContentSection",
     "type": "object"
+  },
+  {
+    "fields": [
+      {
+        "of": [
+          {
+            "type": "pentestHeroSection",
+            "title": "Hero Section"
+          },
+          {
+            "type": "pentestHowItWorksSection",
+            "title": "How It Works Section"
+          },
+          {
+            "type": "pentestWhatYouGetSection",
+            "title": "What You Get Section"
+          },
+          {
+            "type": "pentestFormSection"
+          },
+          {
+            "type": "pentestFaqSection",
+            "title": "FAQ Section"
+          }
+        ],
+        "name": "sections",
+        "type": "array"
+      }
+    ],
+    "name": "pentestPage",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "name": "buttonTitle",
+        "type": "string"
+      },
+      {
+        "name": "buttonLink",
+        "type": "string"
+      }
+    ],
+    "name": "pentestHeroSection",
+    "type": "object",
+    "title": "Hero Section"
+  },
+  {
+    "fields": [
+      {
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "name": "question",
+                "type": "string"
+              },
+              {
+                "name": "answer",
+                "type": "text"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "faqs",
+        "type": "array",
+        "title": "FAQs"
+      }
+    ],
+    "name": "pentestFaqSection",
+    "type": "object",
+    "title": "FAQ Section"
+  },
+  {
+    "fields": [
+      {
+        "name": "title",
+        "type": "string",
+        "title": "Section Title"
+      },
+      {
+        "name": "sectionDescription",
+        "type": "string"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "name": "icon",
+                "type": "image"
+              },
+              {
+                "name": "title",
+                "type": "string"
+              },
+              {
+                "name": "description",
+                "type": "text"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "steps",
+        "type": "array"
+      }
+    ],
+    "name": "pentestHowItWorksSection",
+    "type": "object",
+    "title": "How It Works Section"
+  },
+  {
+    "fields": [
+      {
+        "name": "icon",
+        "type": "image"
+      },
+      {
+        "name": "title",
+        "type": "string"
+      }
+    ],
+    "name": "pentestFeatureItem",
+    "type": "object"
+  },
+  {
+    "fields": [
+      {
+        "name": "title",
+        "type": "string",
+        "title": "Left Title"
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "title": "Left Description"
+      },
+      {
+        "of": [
+          {
+            "type": "pentestFeatureItem"
+          }
+        ],
+        "name": "features",
+        "type": "array",
+        "title": "Feature Blocks"
+      }
+    ],
+    "name": "pentestFormSection",
+    "type": "object"
+  },
+  {
+    "fields": [
+      {
+        "name": "title",
+        "type": "string",
+        "title": "Section Title"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "name": "icon",
+                "type": "image"
+              },
+              {
+                "name": "detail",
+                "type": "string"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "items",
+        "type": "array"
+      }
+    ],
+    "name": "pentestWhatYouGetSection",
+    "type": "object",
+    "title": "What You Get Section"
+  },
+  {
+    "fields": [
+      {
+        "name": "firstName",
+        "type": "string"
+      },
+      {
+        "name": "lastName",
+        "type": "string"
+      },
+      {
+        "name": "jobTitle",
+        "type": "string"
+      },
+      {
+        "name": "company",
+        "type": "string"
+      },
+      {
+        "name": "companyWebsite",
+        "type": "string"
+      },
+      {
+        "name": "companyEmail",
+        "type": "string"
+      },
+      {
+        "name": "billingAddress",
+        "type": "text"
+      },
+      {
+        "name": "billingEmail",
+        "type": "string"
+      },
+      {
+        "name": "targetUrl",
+        "type": "string",
+        "title": "Target URL"
+      },
+      {
+        "name": "applicationName",
+        "type": "string"
+      },
+      {
+        "name": "referralCode",
+        "type": "string"
+      },
+      {
+        "name": "offerType",
+        "type": "string"
+      },
+      {
+        "name": "termsAccepted",
+        "type": "boolean"
+      },
+      {
+        "name": "marketingConsent",
+        "type": "boolean"
+      },
+      {
+        "name": "submittedAt",
+        "type": "datetime"
+      }
+    ],
+    "name": "pentestSubmission",
+    "type": "document"
   }
 ]
