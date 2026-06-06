@@ -1,24 +1,24 @@
 import { revalidatePath } from "next/cache";
 
 export async function POST(req: Request) {
-  try {
-    const body = await req.json();
+	try {
+		const body = await req.json();
 
-    console.log("Sanity Webhook:", body);
+		console.log("Sanity Webhook:", body);
 
-    revalidatePath("/");
-    revalidatePath("/careers");
+		revalidatePath("/");
+		revalidatePath("/careers");
 
-    return Response.json({
-      revalidated: true,
-      now: Date.now(),
-    });
-  } catch (error) {
-    return Response.json(
-      {
-        error: "Webhook failed",
-      },
-      { status: 500 }
-    );
-  }
+		return Response.json({
+			revalidated: true,
+			now: Date.now(),
+		});
+	} catch (error) {
+		return Response.json(
+			{
+				error: "Webhook failed",
+			},
+			{ status: 500 },
+		);
+	}
 }

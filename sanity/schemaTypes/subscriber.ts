@@ -1,25 +1,22 @@
 import { defineField, defineType } from "sanity";
 
 export default defineType({
-  name: "subscriber",
-  title: "Subscribers",
-  type: "document",
+	name: "subscriber",
+	title: "Subscribers",
+	type: "document",
 
-  fields: [
+	fields: [
+		defineField({
+			name: "email",
+			title: "Email",
+			type: "string",
+			validation: (Rule) => Rule.required().email(),
+		}),
 
-    defineField({
-      name: "email",
-      title: "Email",
-      type: "string",
-      validation: (Rule) =>
-        Rule.required().email(),
-    }),
-
-    defineField({
-      name: "subscribedAt",
-      title: "Subscribed At",
-      type: "datetime",
-    }),
-
-  ],
+		defineField({
+			name: "subscribedAt",
+			title: "Subscribed At",
+			type: "datetime",
+		}),
+	],
 });

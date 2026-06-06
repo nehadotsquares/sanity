@@ -1,108 +1,82 @@
-import { client } from "@/lib/integrations/sanity/sanity";
-import {
-  CAREER_PAGE_QUERY,
-  JOBS_QUERY,
-} from "@/lib/integrations/sanity/queries";
-
 import { PortableText } from "@portabletext/react";
-import CareersList from "@/components/career/CareersList";
 import Link from "next/link";
+import CareersList from "@/components/career/CareersList";
+import {
+	CAREER_PAGE_QUERY,
+	JOBS_QUERY,
+} from "@/lib/integrations/sanity/queries";
+import { client } from "@/lib/integrations/sanity/sanity";
 
 export async function generateMetadata() {
-  const pageData = await client.fetch(CAREER_PAGE_QUERY);
+	const pageData = await client.fetch(CAREER_PAGE_QUERY);
 
-  return {
-    title:
-      pageData?.seo?.metaTitle ||
-      pageData?.title,
+	return {
+		title: pageData?.seo?.metaTitle || pageData?.title,
 
-    description:
-      pageData?.seo?.metaDescription,
-  };
+		description: pageData?.seo?.metaDescription,
+	};
 }
 
-
 export default async function CareersPage() {
+	const careerPage = await client.fetch(CAREER_PAGE_QUERY);
+	if (!careerPage) {
+		return <div>Career page not found</div>;
+	}
 
-    const careerPage = await client.fetch(CAREER_PAGE_QUERY);
-     if (!careerPage) {
-        return <div>Career page not found</div>;
-    }
+	const jobs = await client.fetch(JOBS_QUERY);
 
-    const jobs = await client.fetch(JOBS_QUERY);
+	const getFilterOptions = (jobs: any[], key: string) => {
+		const counts: Record<string, number> = {};
 
-    const getFilterOptions = (
-        jobs: any[],
-        key: string
-        ) => {
+		jobs.forEach((job) => {
+			const value = job[key];
 
-        const counts: Record<string, number> = {};
+			if (value) {
+				counts[value] = (counts[value] || 0) + 1;
+			}
+		});
 
-        jobs.forEach((job) => {
-            const value = job[key];
+		return Object.entries(counts);
+	};
 
-            if (value) {
-            counts[value] = (counts[value] || 0) + 1;
-            }
-        });
+	const departmentOptions = getFilterOptions(jobs, "department");
 
-        return Object.entries(counts);
-    };
+	const employmentOptions = getFilterOptions(jobs, "employmentType");
 
-    const departmentOptions = getFilterOptions(
-        jobs,
-        "department"
-        );
+	const locationOptions = getFilterOptions(jobs, "location");
 
-    const employmentOptions = getFilterOptions(
-        jobs,
-        "employmentType"
-        );
+	const locationTypeOptions = getFilterOptions(jobs, "locationType");
 
-    const locationOptions = getFilterOptions(
-        jobs,
-        "location"
-        );
+	const groupedJobs = jobs.reduce((acc: any, job: any) => {
+		const department = job.department || "Other";
 
-    const locationTypeOptions = getFilterOptions(
-        jobs,
-        "locationType"
-        );
+		if (!acc[department]) {
+			acc[department] = [];
+		}
 
-    const groupedJobs = jobs.reduce(
-        (acc: any, job: any) => {
+		acc[department].push(job);
 
-            const department = job.department || "Other";
+		return acc;
+	}, {});
 
-            if (!acc[department]) {
-            acc[department] = [];
-            }
+	return (
+		<div>
+			{/* Hero Section */}
+			<section className="py-15">
+				<div className="container mx-auto px-4 max-w-3xl">
+					<div className="prose max-w-none">
+						<PortableText value={careerPage.description} />
+					</div>
+				</div>
+			</section>
 
-            acc[department].push(job);
+			<CareersList jobs={jobs} />
 
-            return acc;
-        },
-        {}
-        );    
-
-    return (
-        <div>
-            {/* Hero Section */}
-            <section className="py-15">
-                <div className="container mx-auto px-4 max-w-3xl">
-
-                    <div className="prose max-w-none">
-                        <PortableText value={careerPage.description} />
-                    </div>
-                
-                </div>
-            </section>
-
-            <CareersList jobs={jobs} />
-
-            <section>
-                <div className="container mx-auto max-w-3xl px-4 mb-5">{careerPage.careerText}</div>
-            </section>
-        </div>
-    );
+			<section>
+				<div className="container mx-auto max-w-3xl px-4 mb-5">
+					{careerPage.careerText}
+				</div>
+			</section>
+		</div>
+	);
 }

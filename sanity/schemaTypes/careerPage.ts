@@ -1,33 +1,33 @@
 import { defineField, defineType } from "sanity";
 
 export default defineType({
-  name: "careerPage",
-  title: "Career Page",
-  type: "document",
+	name: "careerPage",
+	title: "Career Page",
+	type: "document",
 
-  fields: [
-    defineField({
-      name: "seo",
-      title: "SEO",
-      type: "seo",
-    }),
+	fields: [
+		defineField({
+			name: "seo",
+			title: "SEO",
+			type: "seo",
+		}),
 
-    defineField({
-      name: "title",
-      title: "Page Title",
-      type: "string",
-    }),
+		defineField({
+			name: "title",
+			title: "Page Title",
+			type: "string",
+		}),
 
-    defineField({
-      name: "description",
-      title: "Description",
-      type: "richText",
-    }),
+		defineField({
+			name: "description",
+			title: "Description",
+			type: "richText",
+		}),
 
-    defineField({
-      name: "careerText",
-      title: "Career Text",
-      type: "text",
-    }),
-  ],
+		defineField({
+			name: "careerText",
+			title: "Career Text",
+			type: "text",
+		}),
+	],
 });

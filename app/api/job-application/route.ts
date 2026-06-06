@@ -2,69 +2,61 @@ import { NextResponse } from "next/server";
 import { writeClient } from "@/lib/integrations/sanity/sanity";
 export const runtime = "nodejs";
 export async function POST(req: Request) {
+	try {
+		const formData = await req.formData();
+		const file = formData.get("resume") as File;
+		if (!file) {
+			throw new Error("Resume file missing");
+		}
+		// Upload file to Sanity
+		const uploadedFile = await writeClient.assets.upload("file", file, {
+			filename: file.name,
+		});
+		const application = await writeClient.create({
+			_type: "jobApplication",
+			jobTitle: formData.get("jobTitle"),
+			jobSlug: formData.get("jobSlug"),
+			department: formData.get("department"),
 
-  try {
+			fullName: formData.get("fullName"),
+			email: formData.get("email"),
+			location: formData.get("location"),
 
-    const formData = await req.formData();
-    const file = formData.get("resume") as File;
-    if (!file) {
-      throw new Error("Resume file missing");
-    }
-    // Upload file to Sanity
-    const uploadedFile = await writeClient.assets.upload(
-      "file",
-      file,
-      {
-        filename: file.name,
-      }
-    );
-    const application = await writeClient.create({
-      _type: "jobApplication",
-      jobTitle: formData.get("jobTitle"),
-      jobSlug: formData.get("jobSlug"),
-      department: formData.get("department"),
+			resume: {
+				_type: "file",
+				asset: {
+					_type: "reference",
+					_ref: uploadedFile._id,
+				},
+			},
 
-      fullName: formData.get("fullName"),
-      email: formData.get("email"),
-      location: formData.get("location"),
+			authorized: formData.get("authorized"),
+			sponsorship: formData.get("sponsorship"),
 
-      resume: {
-        _type: "file",
-        asset: {
-          _type: "reference",
-          _ref: uploadedFile._id,
-        },
-      },
+			linkedin: formData.get("linkedin"),
+			portfolio: formData.get("portfolio"),
 
-      authorized: formData.get("authorized"),
-      sponsorship: formData.get("sponsorship"),
+			whyInterested: formData.get("whyInterested"),
+			challenge: formData.get("challenge"),
 
-      linkedin: formData.get("linkedin"),
-      portfolio: formData.get("portfolio"),
+			hearAboutUs: formData.get("hearAboutUs"),
+		});
 
-      whyInterested: formData.get("whyInterested"),
-      challenge: formData.get("challenge"),
+		return NextResponse.json({
+			success: true,
+			application,
+		});
+	} catch (error) {
+		console.error("UPLOAD ERROR:", error);
 
-      hearAboutUs: formData.get("hearAboutUs"),
-    });
-
-    return NextResponse.json({
-      success: true,
-      application,
-    });
-
-  } catch (error) {
-
-    console.error("UPLOAD ERROR:", error);
-
-    return NextResponse.json(
-      {
-        success: false,
-        message: "Something went wrong",
-      },
-      {
-        status: 500,
-      }
-    );
-  }
+		return NextResponse.json(
+			{
+				success: false,
+				message: "Something went wrong",
+			},
+			{
+				status: 500,
+			},
+		);
+	}
 }

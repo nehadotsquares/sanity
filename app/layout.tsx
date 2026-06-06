@@ -2,17 +2,17 @@ import type { Metadata } from "next";
 
 import "./globals.css";
 import { Toaster } from "sonner";
+import { client, urlFor } from "@/lib/integrations/sanity/sanity";
 import Footer from "../components/layout/footer/Footer";
 import Header from "../components/layout/header/Header";
-import { client, urlFor } from "@/lib/integrations/sanity/sanity";
 
 export const metadata: Metadata = {
-  title: "My Blog",
-  description: "Modern Blog Website",
+	title: "My Blog",
+	description: "Modern Blog Website",
 };
 
 export async function getNavigation() {
-  return client.fetch(`
+	return client.fetch(`
     *[_type == "navigation"][0]{
       logo,
       menuItems,
@@ -25,7 +25,7 @@ export async function getNavigation() {
 }
 
 export async function getFooter() {
-  return client.fetch(`
+	return client.fetch(`
     *[_type == "footer"][0]{
       logo,
       footerImage,
@@ -49,30 +49,25 @@ export async function getFooter() {
 }
 
 export default async function RootLayout({
-  children,
+	children,
 }: {
-  children: React.ReactNode;
+	children: React.ReactNode;
 }) {
-  const navigation = await getNavigation();
-  const footer = await getFooter();
-  return (
-    <html lang="en">
+	const navigation = await getNavigation();
+	const footer = await getFooter();
+	return (
+		<html lang="en">
+			<body className="bg-gray-50 text-gray-900">
+				<Toaster position="top-right" />
+				{/* Header */}
+				<Header navigation={navigation} />
 
-      <body className="bg-gray-50 text-gray-900">
-        <Toaster position="top-right" />
-        {/* Header */}
-        <Header navigation={navigation} />
+				{/* Main Content */}
+				<main>{children}</main>
 
-        {/* Main Content */}
-        <main>
-          {children}
-        </main>
-
-        {/* Footer */}
-        <Footer footer={footer} />
-
-      </body>
-
-    </html>
-  );
+				{/* Footer */}
+				<Footer footer={footer} />
+			</body>
+		</html>
+	);
 }

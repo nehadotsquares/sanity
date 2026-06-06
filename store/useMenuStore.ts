@@ -1,16 +1,15 @@
 import { create } from "zustand";
 
 type MenuStore = {
-  open: boolean;
-  setOpen: (value: boolean) => void;
-  toggleOpen: () => void;
+	open: boolean;
+	setOpen: (value: boolean) => void;
+	toggleOpen: () => void;
 };
 
 export const useMenuStore = create<MenuStore>((set) => ({
-  open: false,
+	open: false,
 
-  setOpen: (value) => set({ open: value }),
+	setOpen: (value) => set({ open: value }),
 
-  toggleOpen: () =>
-    set((state) => ({ open: !state.open })),
+	toggleOpen: () => set((state) => ({ open: !state.open })),
 }));
