@@ -1832,5 +1832,212 @@
     ],
     "name": "pentestSubmission",
     "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "options": {
+          "source": "title"
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "custom"
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Videos",
+              "value": "video"
+            },
+            {
+              "title": "Webinars",
+              "value": "webinar"
+            },
+            {
+              "title": "Customer Stories",
+              "value": "customer_stories"
+            },
+            {
+              "title": "White Papers",
+              "value": "white_paper"
+            },
+            {
+              "title": "Briefs",
+              "value": "briefs"
+            },
+            {
+              "title": "Podcasts",
+              "value": "podcast"
+            }
+          ]
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "valid",
+                "constraint": [
+                  "video",
+                  "webinar",
+                  "customer_stories",
+                  "white_paper",
+                  "briefs",
+                  "podcast"
+                ]
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ]
+          }
+        ],
+        "name": "resourceType",
+        "type": "string"
+      },
+      {
+        "name": "publishDate",
+        "type": "datetime"
+      },
+      {
+        "name": "thumbnail",
+        "type": "image"
+      },
+      {
+        "hidden": "conditional",
+        "name": "content",
+        "type": "richText"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "hidden": "conditional",
+        "name": "videoUrl",
+        "type": "url",
+        "title": "Video URL"
+      },
+      {
+        "hidden": "conditional",
+        "name": "webinarDate",
+        "type": "datetime"
+      },
+      {
+        "hidden": "conditional",
+        "name": "formHeading",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "hidden": "conditional",
+        "name": "podcastUrl",
+        "type": "url",
+        "title": "Podcast URL"
+      },
+      {
+        "options": {
+          "accept": "application/pdf"
+        },
+        "hidden": "conditional",
+        "name": "pdf",
+        "type": "file",
+        "title": "PDF File"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "name": "designation",
+                "type": "string"
+              },
+              {
+                "name": "image",
+                "type": "image"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "hidden": "conditional",
+        "name": "speakers",
+        "type": "array"
+      }
+    ],
+    "name": "resource",
+    "type": "document",
+    "title": "Resources"
   }
 ]

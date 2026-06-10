@@ -1,20 +1,20 @@
 {
-  "createdAt": "2026-06-04T10:09:00.363Z",
+  "createdAt": "2026-06-10T12:35:53.540Z",
   "studioVersion": "5.30.0",
   "version": 3,
   "workspaces": [
     {
-      "basePath": "/",
+      "basePath": "/studio/production",
       "dataset": "production",
-      "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 32 32\"><rect width=\"32\" height=\"32\" rx=\"2\" fill=\"#7c3404\"></rect><text x=\"50%\" y=\"50%\" text-anchor=\"middle\" alignment-baseline=\"middle\" fill=\"hsla(24, 94%, 65%, 1)\" style=\"font-family:Inter, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, &quot;Liberation Sans&quot;, Helvetica, Arial, system-ui, sans-serif;font-weight:500;font-size:13px;transform:translateY(1px)\">S</text></svg>",
+      "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 32 32\"><rect width=\"32\" height=\"32\" rx=\"2\" fill=\"#024950\"></rect><text x=\"50%\" y=\"50%\" text-anchor=\"middle\" alignment-baseline=\"middle\" fill=\"hsla(185, 95%, 56%, 1)\" style=\"font-family:Inter, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, &quot;Liberation Sans&quot;, Helvetica, Arial, system-ui, sans-serif;font-weight:500;font-size:13px;transform:translateY(1px)\">P</text></svg>",
       "mediaLibrary": {
         "enabled": false,
         "__internal": {}
       },
-      "name": "default",
+      "name": "production",
       "projectId": "9ufhkri8",
-      "schema": "53c32669.create-schema.json",
-      "title": "sanity-blog",
+      "schema": "738fc38f.create-schema.json",
+      "title": "Production",
       "tools": "ef87c8fe.create-tools.json"
     }
   ]

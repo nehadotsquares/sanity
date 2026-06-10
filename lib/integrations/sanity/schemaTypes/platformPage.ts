@@ -4,6 +4,21 @@ export default {
 	type: "document",
 	fields: [
 		{
+			name: "sectionVisibility",
+			type: "object",
+			fields: [
+				{ name: "heroSection", type: "boolean", initialValue: true },
+				{ name: "featureSection", type: "boolean", initialValue: true },
+				{ name: "testSection", type: "boolean", initialValue: true },
+				{ name: "resultSection", type: "boolean", initialValue: true },
+				{ name: "solutionSection", type: "boolean", initialValue: true },
+				{ name: "singleAgentSection", type: "boolean", initialValue: true },
+				{ name: "designedSection", type: "boolean", initialValue: true },
+				{ name: "productionSection", type: "boolean", initialValue: true },
+				{ name: "securitySection", type: "boolean", initialValue: true },
+			],
+		},
+		{
 			name: "seo",
 			title: "SEO",
 			type: "seo",

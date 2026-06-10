@@ -29,7 +29,15 @@ export default async function PlatformPage() {
 
 	return (
 		<main>
-			{pageData.sections?.map((section: any, index: number) => {
+			{pageData.sections
+			?.filter((section: any) => {
+				const visibility = pageData.sectionVisibility || {};
+				const type = section._type;
+
+				return visibility[type] !== false;
+			})
+			.map((section: any, index: number) => {
+				
 				if (section._type === "heroSection") {
 					return <HeroSection key={index} data={section} />;
 				}

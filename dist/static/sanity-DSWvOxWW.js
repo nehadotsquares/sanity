@@ -1,0 +1,1 @@
+import{renderStudio as t}from"sanity";import{s as o}from"./sanity.config-Bjt6xjPH.js";import"@sanity/vision";import"sanity/structure";t(document.getElementById("sanity"),o,{reactStrictMode:!1,basePath:"/"});
