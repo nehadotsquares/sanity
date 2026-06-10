@@ -33,6 +33,8 @@ import seo from "./seo";
 import { footer } from "./settings/footer";
 import { menu } from "./settings/menu";
 import { navigation } from "./settings/navigation";
+import { resource } from "./resource";
+
 export const schemaTypes = [
 	navigation,
 	footer,
@@ -69,4 +71,5 @@ export const schemaTypes = [
 	pentestFormSection,
 	pentestWhatYouGetSection,
 	pentestSubmission,
+	resource
 ];
