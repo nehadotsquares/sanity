@@ -5,7 +5,7 @@ import { Toaster } from "sonner";
 import { client, urlFor } from "@/lib/integrations/sanity/sanity";
 import Footer from "../components/layout/footer/Footer";
 import Header from "../components/layout/header/Header";
-
+import LayoutContent from "@/components/layout/LayoutContent";
 export const metadata: Metadata = {
 	title: "My Blog",
 	description: "Modern Blog Website",
@@ -60,13 +60,20 @@ export default async function RootLayout({
 			<body className="bg-gray-50 text-gray-900">
 				<Toaster position="top-right" />
 				{/* Header */}
-				<Header navigation={navigation} />
+				{/* <Header navigation={navigation} /> */}
 
 				{/* Main Content */}
-				<main>{children}</main>
+				{/* <main>{children}</main> */}
 
 				{/* Footer */}
-				<Footer footer={footer} />
+				{/* <Footer footer={footer} /> */}
+
+        <LayoutContent
+          navigation={navigation}
+          footer={footer}
+        >
+          {children}
+        </LayoutContent>
 			</body>
 		</html>
 	);

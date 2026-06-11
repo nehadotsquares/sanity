@@ -3,7 +3,7 @@ import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
 import { schemaTypes } from "./lib/integrations/sanity/schemaTypes";
 import { structure } from "./lib/integrations/sanity/structure";
-
+import { deskTool } from "sanity/desk";
 export default defineConfig({
 	// name: "default",
 	// title: "sanity-blog",
@@ -34,6 +34,7 @@ export default defineConfig({
 			// structure,
 		}),
 		visionTool(),
+		deskTool(),
 	],
     // auth: getAuthStore("production"),
 });
