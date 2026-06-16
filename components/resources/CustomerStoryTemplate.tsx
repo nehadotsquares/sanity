@@ -79,10 +79,10 @@ export function CustomerStoryTemplate({
         </h1>
 
        <div style={{
-            // display: "grid",
-            gridTemplateColumns: "2fr 1fr",
+            display: "grid",
+            // gridTemplateColumns: "2fr 1fr",
             gap: "20px",
-          }} className="grid items-start mb-10">
+          }} className="grid grid-cols-12 gap-10 items-start mb-10">
           {resource.content && (
             <>
             {/* LEFT */}
@@ -91,7 +91,7 @@ export function CustomerStoryTemplate({
                   value={resource.content}
                 />
             </div>
-            <div>
+            <div className="lg:block lg:col-span-3">
               <div className="sticky top-24">
                 <h3 className="mb-4 font-semibold">
                   On This Page
