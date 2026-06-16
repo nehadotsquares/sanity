@@ -2,9 +2,16 @@ import { getResources } from "@/lib/integrations/sanity/services/resources"
 
 import { ResourceListing } from "@/components/resources/ResourceListing"
 
-export default async function Page() {
-  const resources =
-    await getResources()
+export default async function Page({
+    searchParams,
+  }: {
+    searchParams: Promise<{
+      type?: string
+    }>
+  }) {
+  const resources = await getResources()
+
+  const params = await searchParams
 
   return (
     <div>
@@ -22,6 +29,7 @@ export default async function Page() {
         <div className="container mx-auto py-12">
           <ResourceListing
             resources={resources}
+            initialType={params.type || "all"}
           />
         </div>
       </section>

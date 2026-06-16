@@ -1,6 +1,6 @@
 "use client"
 
-import { useMemo, useState } from "react"
+import { useMemo, useState, useEffect } from "react"
 import { useSearchParams, useRouter, } from "next/navigation"
 import { ResourceTabs } from "./ResourceTabs"
 import { ResourceCard } from "./ResourceCard"
@@ -8,22 +8,19 @@ import { ResourceSearch } from "./ResourceSearch"
 
 export function ResourceListing({
   resources,
+  initialType
 }: {
-  resources: any[]
+  resources: any[],
+  initialType: string
 }) {
   const router = useRouter()
 
-  const searchParams = useSearchParams()
+  const [activeTab, setActiveTab] =
+    useState(initialType)
 
-  // const initialType = searchParams.get("type") || "all"
-
-  // const [activeTab, setActiveTab] =
-  //   useState(initialType)
-
-  const activeTab = searchParams.get("type") || "all"
-
-  // const [activeTab, setActiveTab] =
-  //   useState("all")
+  useEffect(() => {
+    setActiveTab(initialType)
+  }, [initialType])
 
   const [searchTerm, setSearchTerm] =
     useState("")
@@ -38,12 +35,6 @@ export function ResourceListing({
               : resource.resourceType ===
                 activeTab
 
-          // const matchesSearch =
-          //   resource.title
-          //     .toLowerCase()
-          //     .includes(
-          //       searchTerm.toLowerCase()
-          //     )
           const matchesSearch =
           typeof resource.title === "string" &&
           resource.title
@@ -70,6 +61,7 @@ export function ResourceListing({
           <ResourceTabs
             activeTab={activeTab}
             onChange={(value) => {
+              setActiveTab(value)
               if (value === "all") {
                 router.replace("/resources")
               } else {
