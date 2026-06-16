@@ -1,7 +1,7 @@
 "use client"
 
 import { useMemo, useState } from "react"
-
+import { useSearchParams, useRouter, } from "next/navigation"
 import { ResourceTabs } from "./ResourceTabs"
 import { ResourceCard } from "./ResourceCard"
 import { ResourceSearch } from "./ResourceSearch"
@@ -11,8 +11,19 @@ export function ResourceListing({
 }: {
   resources: any[]
 }) {
-  const [activeTab, setActiveTab] =
-    useState("all")
+  const router = useRouter()
+
+  const searchParams = useSearchParams()
+
+  // const initialType = searchParams.get("type") || "all"
+
+  // const [activeTab, setActiveTab] =
+  //   useState(initialType)
+
+  const activeTab = searchParams.get("type") || "all"
+
+  // const [activeTab, setActiveTab] =
+  //   useState("all")
 
   const [searchTerm, setSearchTerm] =
     useState("")
@@ -58,7 +69,15 @@ export function ResourceListing({
         <div className="flex-1">
           <ResourceTabs
             activeTab={activeTab}
-            onChange={setActiveTab}
+            onChange={(value) => {
+              if (value === "all") {
+                router.replace("/resources")
+              } else {
+                router.replace(
+                  `/resources?type=${value}`
+                )
+              }
+            }}
           />
         </div>
 

@@ -23,7 +23,12 @@ export function PodcastTemplate({
         <nav className="mb-4 text-sm text-gray-500">
           <Link href="/resources">Resources /</Link>
 
-          <span className="mx-2 capitalize">{resource.resourceType} /</span>
+          <Link href={`/resources?type=${resource.resourceType}`} className="mx-2 capitalize">
+            {resource.resourceType.replaceAll(
+              "_",
+              " "
+            )} /
+          </Link>
 
           <span>{resource.title}</span>
         </nav>
