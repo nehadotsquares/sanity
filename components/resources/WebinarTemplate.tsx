@@ -3,6 +3,19 @@ import { PortableTextRenderer } from "@/components/resources/PortableTextRendere
 import Link from "next/link";
 import { ResourceCard } from "./ResourceCard"
 
+const CATEGORY_LABELS: Record<
+  string,
+  string
+> = {
+  video: "Video",
+  webinar: "Webinar",
+  customer_stories:
+    "Customer Story",
+  white_paper: "White Paper",
+  briefs: "Brief",
+  podcast: "Podcast",
+}
+
 export function WebinarTemplate({
   resource,
   relatedResources,
@@ -38,7 +51,9 @@ export function WebinarTemplate({
         {/* Category & Date */}
         <div className="mb-4">
           <span className="rounded border border-gray-300 px-3 py-1 text-xs font-medium capitalize">
-           {resource.resourceType} 
+            {CATEGORY_LABELS[
+                resource.resourceType
+            ]}
           </span>
 
           <span className="px-3">{date}</span>

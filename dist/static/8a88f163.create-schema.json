@@ -2090,5 +2090,40 @@
     "name": "resource",
     "type": "document",
     "title": "Resources"
+  },
+  {
+    "fields": [
+      {
+        "name": "resourceType",
+        "type": "string"
+      },
+      {
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "name": "jobTitle",
+        "type": "string"
+      },
+      {
+        "name": "company",
+        "type": "string"
+      },
+      {
+        "name": "country",
+        "type": "string"
+      },
+      {
+        "name": "email",
+        "type": "string"
+      },
+      {
+        "name": "submittedAt",
+        "type": "datetime"
+      }
+    ],
+    "name": "resourceLead",
+    "type": "document",
+    "title": "Resource Leads"
   }
 ]
