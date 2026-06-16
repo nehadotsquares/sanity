@@ -1,9 +1,10 @@
 "use client"
 
 import { useState } from "react"
-
+import { toast } from "sonner"
 interface Props {
   heading?: string
+  resourceType?: string
 }
 
 type FormDataType = {
@@ -25,7 +26,7 @@ type FormErrorsType = {
 }
 
 export function ResourceForm({
-  heading,
+  heading,resourceType
 }: Props) {
   const [loading, setLoading] =
     useState(false)
@@ -114,7 +115,7 @@ export function ResourceForm({
     setLoading(true)
 
     try {
-      await fetch(
+     const response = await fetch(
         "/api/resource-form",
         {
           method: "POST",
@@ -123,6 +124,7 @@ export function ResourceForm({
               "application/json",
           },
           body: JSON.stringify({
+            resourceType,
             name: form.name,
             jobTitle:
               form.jobTitle,
@@ -135,6 +137,12 @@ export function ResourceForm({
         }
       )
 
+       if (!response.ok) {
+          throw new Error("Failed to submit form")
+        }
+
+        toast.success("Form submitted successfully")
+
       setForm({
         name: "",
         jobTitle: "",
@@ -146,6 +154,7 @@ export function ResourceForm({
 
       setErrors({})
     } catch (error) {
+      toast.error("Something went wrong")
       console.error(error)
     } finally {
       setLoading(false)

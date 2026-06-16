@@ -34,6 +34,7 @@ import { footer } from "./settings/footer";
 import { menu } from "./settings/menu";
 import { navigation } from "./settings/navigation";
 import { resource } from "./resource";
+import { resourceLead } from "./resourceLead"
 
 export const schemaTypes = [
 	navigation,
@@ -71,5 +72,6 @@ export const schemaTypes = [
 	pentestFormSection,
 	pentestWhatYouGetSection,
 	pentestSubmission,
-	resource
+	resource,
+	resourceLead,
 ];

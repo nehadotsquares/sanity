@@ -31,7 +31,7 @@ export function CustomerStoryTemplate({
       }
     }) || []
 
-  console.log(resource);
+
   return (
      <section className="py-16">
       <div className="container mx-auto mt-[100px] max-w-7xl px-4">

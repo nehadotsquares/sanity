@@ -17,7 +17,7 @@ export function WebinarTemplate({
         }
       )
     : ""
-      console.log(resource);
+
   return (
     <section className="py-16">
       <div className="mx-auto max-w-6xl px-6">
@@ -106,6 +106,7 @@ export function WebinarTemplate({
             <div className="sticky top-24">
               <ResourceForm
                 heading={resource.formHeading}
+                resourceType={resource.resourceType}
               />
             </div>
           </div>
