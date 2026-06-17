@@ -35,6 +35,8 @@ import { menu } from "./settings/menu";
 import { navigation } from "./settings/navigation";
 import { resource } from "./resource";
 import { resourceLead } from "./resourceLead"
+import dealRegistration from "./dealRegistration";
+import dealRegistrationLead from "./dealRegistrationLead";
 
 export const schemaTypes = [
 	navigation,
@@ -74,4 +76,6 @@ export const schemaTypes = [
 	pentestSubmission,
 	resource,
 	resourceLead,
+	dealRegistration,
+	dealRegistrationLead
 ];
