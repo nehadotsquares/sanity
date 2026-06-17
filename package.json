@@ -18,6 +18,7 @@
 		"react": "19.2.4",
 		"react-dom": "19.2.4",
 		"react-google-recaptcha": "^3.1.0",
+		"resend": "^6.12.4",
 		"sanity": "^5.30.0",
 		"slugify": "^1.6.9",
 		"sonner": "^2.0.7",
